@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kartu Pelanggan PPPoE</title>
+    <style>
+        :root {
+            --ink: #eef2ff;
+            --muted: #b8c1d9;
+            --gold: #d7a84f;
+            --gold-deep: #8a5c18;
+            --navy-1: #0c1a4a;
+            --navy-2: #0a1232;
+            --navy-3: #05091c;
+            --page-bg: #e5e5e5;
+            --line: rgba(255, 255, 255, 0.15);
+            --shadow: 0 10px 24px rgba(3, 7, 18, 0.35);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--page-bg);
+            color: var(--ink);
+            font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif;
+        }
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        .page {
+            padding: 12mm 10mm;
+        }
+        .meta {
+            font-size: 11px;
+            color: #334155;
+            margin-bottom: 8mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(88mm, 1fr));
+            gap: 8mm;
+        }
+        .card-set {
+            display: grid;
+            gap: 6mm;
+            justify-items: start;
+            break-inside: avoid;
+        }
+        .card {
+            width: 85.6mm;
+            height: 54mm;
+            border-radius: 6mm;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(140deg, var(--navy-1), var(--navy-2) 60%, var(--navy-3));
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 75% 35%, rgba(255, 255, 255, 0.08) 0 2px, transparent 3px) 0 0 / 10px 10px,
+                linear-gradient(130deg, rgba(255, 255, 255, 0.06), transparent 55%);
+            opacity: 0.6;
+        }
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(105deg, rgba(215, 168, 79, 0.85) 0 10%, transparent 12%),
+                radial-gradient(70% 120% at 25% 40%, rgba(215, 168, 79, 0.25) 0 35%, transparent 55%);
+            mix-blend-mode: screen;
+            opacity: 0.75;
+        }
+        .card-inner {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 4mm 5mm;
+        }
+        .card-front .card-inner {
+            justify-content: space-between;
+        }
+        .front-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 4mm;
+        }
+        .brand-logo {
+            width: 24mm;
+            height: auto;
+            border-radius: 2mm;
+            background: transparent;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+             padding: 0 2mm;
+            margin-bottom: 25px;
+            margin-left: 15px;
+        }
+        .vip {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+        .vip-sub {
+            margin-top: -1mm;
+            font-style: italic;
+            font-size: 10px;
+            color: #fef3c7;
+            letter-spacing: 0.6px;
+        }
+        .card-title {
+            font-size: 8px;
+            color: var(--muted);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+        .card-id {
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .card-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fde68a;
+        }
+        .card-user {
+            font-size: 9px;
+            color: var(--muted);
+        }
+        .divider-curve {
+            position: absolute;
+            top: -15%;
+            right: 35%;
+            width: 55mm;
+            height: 80mm;
+            border: 2.5mm solid rgba(215, 168, 79, 0.9);
+            border-left: none;
+            border-radius: 0 100mm 100mm 0;
+            opacity: 0.85;
+        }
+        .card-back .card-inner {
+            justify-content: space-between;
+        }
+        .magnetic {
+            height: 10mm;
+            background: linear-gradient(90deg, #020617, #0b1027);
+            border-radius: 2mm;
+            margin-bottom: 3mm;
+        }
+        .back-content {
+            display: grid;
+            grid-template-columns: 22mm 1fr;
+            gap: 4mm;
+            align-items: center;
+        }
+        .qr {
+            width: 22mm;
+            height: 22mm;
+            background: #f8fafc;
+            border-radius: 2mm;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+        .qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .qr-block {
+            display: grid;
+            gap: 1.5mm;
+            justify-items: center;
+        }
+        .back-text {
+            font-size: 7px;
+            color: var(--muted);
+            line-height: 1.5;
+            text-align: center;
+        }
+        .back-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 7px;
+            color: var(--muted);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .back-info span {
+            color: #fef3c7;
+        }
+        .company-block {
+            display: grid;
+            gap: 2mm;
+            margin-top: 2mm;
+            font-size: 7px;
+            color: var(--muted);
+        }
+        .company-name {
+            font-size: 8px;
+            font-weight: 700;
+            color: #fef3c7;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2mm 4mm;
+            font-size: 8px;
+        }
+        .label {
+            text-transform: uppercase;
+            font-size: 6px;
+            color: var(--muted);
+            letter-spacing: 0.6px;
+            margin-bottom: 1mm;
+        }
+        .value {
+            font-size: 8px;
+            color: #e2e8f0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .address {
+            grid-column: span 2;
+            white-space: nowrap;
+        }
+        .code {
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #fef3c7;
+        }
+        .alert {
+            padding: 10px 12px;
+            background: #fff3cd;
+            color: #664d03;
+            border: 1px solid #ffeeba;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+                <div class="meta">
+            <div>Dicetak: 2026-05-17 16:51</div>
+            <div>Total: 0</div>
+        </div>
+
+                    <div class="alert">Pilih user dulu (centang checkbox).</div>
+            </div>
+
+    </body>
+</html>

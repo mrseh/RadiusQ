@@ -1,0 +1,127 @@
+{
+  "draw": 1,
+  "recordsTotal": 609,
+  "recordsFiltered": 609,
+  "data": [
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2968\">",
+      "no": 1,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2968\">GGN-7528953131</a>",
+      "pelanggan_id": 30340,
+      "nama_pelanggan": "MUSLIMAH",
+      "jenis_gangguan": "Loss Merah",
+      "prioritas": "normal",
+      "status": "progress",
+      "teknisi": "GALANG",
+      "created_at": "17/05/2026 15:26:10"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2967\">",
+      "no": 2,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2967\">GGN-1769600282</a>",
+      "pelanggan_id": 22140,
+      "nama_pelanggan": "ZAHIRI",
+      "jenis_gangguan": "Loss Merah",
+      "prioritas": "normal",
+      "status": "progress",
+      "teknisi": "HANAFI",
+      "created_at": "17/05/2026 14:58:44"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2966\">",
+      "no": 3,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2966\">GGN-4472165830</a>",
+      "pelanggan_id": 32257,
+      "nama_pelanggan": "BUSTAMI",
+      "jenis_gangguan": "Redaman Tinggi",
+      "prioritas": "normal",
+      "status": "progress",
+      "teknisi": "SRI YANTO",
+      "created_at": "17/05/2026 12:57:51"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2960\">",
+      "no": 4,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2960\">GGN-9076072906</a>",
+      "pelanggan_id": 28732,
+      "nama_pelanggan": "ADMIYATI",
+      "jenis_gangguan": "Lainnya",
+      "prioritas": "normal",
+      "status": "progress",
+      "teknisi": "AHMAD YUSUF",
+      "created_at": "17/05/2026 07:34:50"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2959\">",
+      "no": 5,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2959\">GGN-2377551561</a>",
+      "pelanggan_id": 22230,
+      "nama_pelanggan": "ALFIAN",
+      "jenis_gangguan": "Loss Merah",
+      "prioritas": "normal",
+      "status": "progress",
+      "teknisi": "GALANG",
+      "created_at": "16/05/2026 20:39:45"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2958\">",
+      "no": 6,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2958\">GGN-9865190835</a>",
+      "pelanggan_id": 22234,
+      "nama_pelanggan": "M.NAZLUL HAIR",
+      "jenis_gangguan": "Loss Merah",
+      "prioritas": "normal",
+      "status": "closed",
+      "teknisi": "HANAFI",
+      "created_at": "16/05/2026 19:55:37"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2956\">",
+      "no": 7,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2956\">GGN-6264493746</a>",
+      "pelanggan_id": 28861,
+      "nama_pelanggan": "NOVIA",
+      "jenis_gangguan": "Lainnya",
+      "prioritas": "normal",
+      "status": "progress",
+      "teknisi": "SRI YANTO",
+      "created_at": "16/05/2026 13:26:46"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2949\">",
+      "no": 8,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2949\">GGN-0328864869</a>",
+      "pelanggan_id": 31700,
+      "nama_pelanggan": "AHMAD RIANTO",
+      "jenis_gangguan": "PON Blinking",
+      "prioritas": "normal",
+      "status": "closed",
+      "teknisi": "AHMAD YUSUF",
+      "created_at": "15/05/2026 18:19:01"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2947\">",
+      "no": 9,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2947\">GGN-0697441790</a>",
+      "pelanggan_id": 22542,
+      "nama_pelanggan": "ELFERA MARGARETA",
+      "jenis_gangguan": "Lainnya",
+      "prioritas": "normal",
+      "status": "closed",
+      "teknisi": "GALANG",
+      "created_at": "15/05/2026 15:48:11"
+    },
+    {
+      "checkbox": "<input class=\"form-check-input tiket-check\" type=\"checkbox\" data-id=\"2942\">",
+      "no": 10,
+      "nomor_tiket": "<a href=\"javascript:void(0)\" class=\"fw-semibold tiket-detail\" data-id=\"2942\">GGN-2290213336</a>",
+      "pelanggan_id": 22378,
+      "nama_pelanggan": "SRI WELASA SIH",
+      "jenis_gangguan": "Lainnya",
+      "prioritas": "normal",
+      "status": "closed",
+      "teknisi": "HANAFI",
+      "created_at": "15/05/2026 09:23:07"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "draw": 1,
+  "recordsTotal": 120,
+  "recordsFiltered": 18,
+  "data": [
+    {
+      "id": 922,
+      "tanggal": "2026-05-17 08:30",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Cash",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 3,
+      "nominal": 597000
+    },
+    {
+      "id": 921,
+      "tanggal": "2026-05-17 06:12",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Transfer",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 40,
+      "nominal": 7938600
+    },
+    {
+      "id": 911,
+      "tanggal": "2026-05-16 07:27",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Cash",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 20,
+      "nominal": 3980000
+    },
+    {
+      "id": 907,
+      "tanggal": "2026-05-16 00:02",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Transfer",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 439,
+      "nominal": 88177951
+    },
+    {
+      "id": 900,
+      "tanggal": "2026-05-15 08:01",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Cash",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 18,
+      "nominal": 3582000
+    },
+    {
+      "id": 896,
+      "tanggal": "2026-05-15 00:19",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Transfer",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 344,
+      "nominal": 68154402
+    },
+    {
+      "id": 892,
+      "tanggal": "2026-05-14 13:34",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Cash",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 3,
+      "nominal": 597000
+    },
+    {
+      "id": 885,
+      "tanggal": "2026-05-14 00:25",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Transfer",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 124,
+      "nominal": 24616377
+    },
+    {
+      "id": 874,
+      "tanggal": "2026-05-13 06:34",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Transfer",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 43,
+      "nominal": 8610424
+    },
+    {
+      "id": 865,
+      "tanggal": "2026-05-12 06:31",
+      "jenis": "pemasukan",
+      "kategori": "invoice",
+      "metode": "Transfer",
+      "deskripsi": "Pemasukan invoice",
+      "qty": 53,
+      "nominal": 11215238
+    }
+  ]
+}

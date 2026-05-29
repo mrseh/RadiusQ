@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Response Report — my.mitraserayu.net</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f1117; color: #e0e0e0; min-height: 100vh; padding: 32px; }
+  h1 { text-align: center; color: #fff; font-size: 28px; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 32px; font-size: 14px; }
+  .badge-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+  .badge { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 12px; padding: 16px 24px; text-align: center; min-width: 120px; }
+  .badge .num { font-size: 32px; font-weight: 700; }
+  .badge .label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+  .badge.green .num { color: #4ade80; }
+  .badge.blue .num { color: #60a5fa; }
+  .badge.orange .num { color: #fb923c; }
+  .badge.red .num { color: #f87171; }
+  .badge.purple .num { color: #c084fc; }
+  .section { background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 16px; margin-bottom: 24px; overflow: hidden; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: #1e2230; cursor: pointer; border-bottom: 1px solid #2a2d3a; }
+  .section-title { font-size: 16px; font-weight: 600; color: #fff; }
+  .section-counts { display: flex; gap: 12px; }
+  .count-chip { font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+  .count-json { background: #14532d; color: #4ade80; }
+  .count-txt { background: #1e3a5f; color: #60a5fa; }
+  .count-fail { background: #450a0a; color: #f87171; }
+  .section-body { display: none; padding: 16px 24px; }
+  .section-body.open { display: block; }
+  .endpoint-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #2a2d3a; }
+  .endpoint-row:last-child { border-bottom: none; }
+  .ep-icon { font-size: 18px; }
+  .ep-path { flex: 1; font-family: 'Courier New', monospace; font-size: 13px; color: #a5b4fc; }
+  .ep-size { font-size: 12px; color: #888; white-space: nowrap; }
+  .ep-meta { font-size: 11px; color: #555; white-space: nowrap; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+  .ep-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; }
+  .tag-json { background: #14532d; color: #4ade80; }
+  .tag-txt { background: #1e3a5f; color: #60a5fa; }
+  .tag-fail { background: #450a0a; color: #f87171; }
+  .data-preview { margin-top: 12px; background: #111; border: 1px solid #2a2d3a; border-radius: 8px; padding: 12px; font-family: 'Courier New', monospace; font-size: 11px; color: #4ade80; white-space: pre-wrap; max-height: 120px; overflow-y: auto; }
+  .data-preview .key { color: #60a5fa; }
+  .data-preview .val { color: #4ade80; }
+  .toggle-btn { background: none; border: none; color: #888; font-size: 14px; cursor: pointer; transition: transform 0.2s; }
+  .toggle-btn.open { transform: rotate(90deg); }
+  .footer { text-align: center; color: #444; font-size: 12px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<h1>📡 API Response Report</h1>
+<div class="subtitle">my.mitraserayu.net — Generated 2026-05-17 18:25:31</div>
+
+<div class="badge-row">
+  <div class="badge green">
+    <div class="num">41</div>
+    <div class="label">JSON Files</div>
+  </div>
+  <div class="badge blue">
+    <div class="num">12</div>
+    <div class="label">TXT / HTML</div>
+  </div>
+  <div class="badge purple">
+    <div class="num">54</div>
+    <div class="label">Completed</div>
+  </div>
+  <div class="badge red">
+    <div class="num">117</div>
+    <div class="label">Failed</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('hotspot')">
+    <div>
+      <div class="section-title">📁 hotspot</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 6 JSON</span>
+      <span class="count-chip count-txt">📝 2 TXT</span>
+      <span class="count-chip count-fail">❌ 26 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-hotspot">▶</button>
+  </div>
+  <div class="section-body" id="body-hotspot">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">hotspot/profile/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">hotspot/session/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">hotspot/sold/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">hotspot/sold/stats/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">106 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">hotspot/template/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">hotspot/user/stats/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">93 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">hotspot/profile/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">60.5 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">hotspot/template/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">52.4 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/profile/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/profile</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/session/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/template/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/template</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/ajax</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 500</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/ajax</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 500</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/ajax</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 500</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/credentials</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/credentials</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/credentials</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/detail</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/detail</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/detail</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/reseller</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/reseller</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/reseller</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 404</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/user/stats</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/sold/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/sold/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/sold/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/sold/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/hotspot/sold/stats</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('invoice')">
+    <div>
+      <div class="section-title">📁 invoice</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 3 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 15 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-invoice">▶</button>
+  </div>
+  <div class="section-body" id="body-invoice">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">invoice/paid/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=20, total=10423</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">12.5 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">invoice/unpaid/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=20, total=314</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">10.1 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">invoice/unpaid/pelanggan/search/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">947 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 400</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 400</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/paid/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 400</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/export</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/pelanggan/search</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 400</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 400</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/invoice/unpaid/print</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 400</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('log')">
+    <div>
+      <div class="section-title">📁 log</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 1 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 1 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-log">▶</button>
+  </div>
+  <div class="section-body" id="body-log">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">log/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=2908</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">5.3 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/log/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('map')">
+    <div>
+      <div class="section-title">📁 map</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 4 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 4 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-map">▶</button>
+  </div>
+  <div class="section-body" id="body-map">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">map/odp/data/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">30 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">map/odp/options/response.json</span>
+      <span class="ep-meta">recordsFiltered=2, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">92 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">map/user/data/response.json</span>
+      <span class="ep-meta">recordsFiltered=227, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">138.8 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">map/user/options/response.json</span>
+      <span class="ep-meta">recordsFiltered=2, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">106 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/map/odp/data</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/map/odp/options</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/map/user/data</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/map/user/options</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('mikrotik')">
+    <div>
+      <div class="section-title">📁 mikrotik</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 1 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 1 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-mikrotik">▶</button>
+  </div>
+  <div class="section-body" id="body-mikrotik">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">mikrotik/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=1, total=1</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">798 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mikrotik/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('mitra')">
+    <div>
+      <div class="section-title">📁 mitra</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 4 JSON</span>
+      <span class="count-chip count-txt">📝 4 TXT</span>
+      <span class="count-chip count-fail">❌ 8 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-mitra">▶</button>
+  </div>
+  <div class="section-body" id="body-mitra">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">mitra/biller/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">mitra/deposit/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">mitra/outlet/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">mitra/reseller/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">mitra/biller/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">53.9 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">mitra/deposit/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">52.5 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">mitra/outlet/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">51.1 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">mitra/reseller/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">58.7 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/biller/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/biller</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/deposit/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/deposit</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/outlet/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/outlet</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/reseller/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/mitra/reseller</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('olt')">
+    <div>
+      <div class="section-title">📁 olt</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 1 JSON</span>
+      <span class="count-chip count-txt">📝 1 TXT</span>
+      <span class="count-chip count-fail">❌ 10 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-olt">▶</button>
+  </div>
+  <div class="section-body" id="body-olt">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">olt/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">74 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">olt/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">54.6 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/hioso</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/hioso</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/hioso</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/hsgq</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/hsgq</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/hsgq</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/olt</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('payment-gateway')">
+    <div>
+      <div class="section-title">📁 payment-gateway</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 1 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 1 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-payment-gateway">▶</button>
+  </div>
+  <div class="section-body" id="body-payment-gateway">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">payment-gateway/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=100</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">4.0 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/payment-gateway/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('perusahaan')">
+    <div>
+      <div class="section-title">📁 perusahaan</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 2 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 2 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-perusahaan">▶</button>
+  </div>
+  <div class="section-body" id="body-perusahaan">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">perusahaan/bank/list/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">30 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">perusahaan/company/get/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">595 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/perusahaan/bank/list</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/perusahaan/company/get</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('pppoe')">
+    <div>
+      <div class="section-title">📁 pppoe</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 6 JSON</span>
+      <span class="count-chip count-txt">📝 3 TXT</span>
+      <span class="count-chip count-fail">❌ 17 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-pppoe">▶</button>
+  </div>
+  <div class="section-body" id="body-pppoe">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">pppoe/offline/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=20, total=57</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">9.1 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">pppoe/online/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=20, total=1318</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">8.7 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">pppoe/profile/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=4, total=4</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">7.2 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">pppoe/user/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=1508</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">5.9 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">pppoe/user/graph/user-monthly/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">440 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">pppoe/user/stats/response.json</span>
+      <span class="ep-meta">recordsFiltered=0, total=1508</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">73 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">pppoe/profile/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">53.9 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">pppoe/user/print/kartu/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">7.4 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">pppoe/user/print/stiker/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">5.3 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/export/rsc</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/export/rsc</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/export/rsc</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/export/xls</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/export/xls</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/export/xls</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/print/kartu</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/print/kartu</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/print/stiker</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/print/stiker</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/stats</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/user/graph/user-monthly</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/offline/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/online/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/profile/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/pppoe/profile</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('profile')">
+    <div>
+      <div class="section-title">📁 profile</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 2 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 8 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-profile">▶</button>
+  </div>
+  <div class="section-body" id="body-profile">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">profile/ajax/license/response.json</span>
+      <span class="ep-meta">recordsFiltered=5, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">775 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">profile/ajax/profile/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">307 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/license</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/license-renew</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/license-renew</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/license-renew</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/password</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/password</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/password</span>
+      <span class="ep-meta" style="color:#f87171">HTTP 405</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/profile/ajax/profile</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('tiket')">
+    <div>
+      <div class="section-title">📁 tiket</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 4 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 4 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-tiket">▶</button>
+  </div>
+  <div class="section-body" id="body-tiket">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">tiket/gangguan/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=609</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">4.8 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">tiket/gangguan/getTeknisi/response.json</span>
+      <span class="ep-meta">recordsFiltered=5, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">463 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">tiket/gangguan/pelanggan/search/response.json</span>
+      <span class="ep-meta">recordsFiltered=20, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">2.6 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">tiket/gangguan/stats/response.json</span>
+      <span class="ep-meta">recordsFiltered=4, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">124 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/tiket/gangguan/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/tiket/gangguan/pelanggan/search</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/tiket/gangguan/stats</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/tiket/gangguan/getTeknisi</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('transaksi')">
+    <div>
+      <div class="section-title">📁 transaksi</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 2 JSON</span>
+      <span class="count-chip count-txt">📝 1 TXT</span>
+      <span class="count-chip count-fail">❌ 12 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-transaksi">▶</button>
+  </div>
+  <div class="section-body" id="body-transaksi">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">transaksi/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=10, total=120</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">2.3 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">transaksi/stats/response.json</span>
+      <span class="ep-meta">recordsFiltered=3, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">112 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">transaksi/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">72.4 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/export/csv</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/export/csv</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/export/csv</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/report/daily</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/report/daily</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/report/daily</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/report/monthly</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/report/monthly</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/report/monthly</span>
+      <span class="ep-meta" style="color:#f87171">Playwright: Page.goto: Download is starting
+Call log:
+  - na</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/transaksi/stats</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('users')">
+    <div>
+      <div class="section-title">📁 users</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 1 JSON</span>
+      <span class="count-chip count-txt">📝 1 TXT</span>
+      <span class="count-chip count-fail">❌ 2 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-users">▶</button>
+  </div>
+  <div class="section-body" id="body-users">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">users/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=7, total=7</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">1.5 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">📝</span>
+      <span class="ep-path">users/response.txt</span>
+      <span class="ep-meta">HTML/non-JSON</span>
+      <span class="ep-tag tag-txt">TXT</span>
+      <span class="ep-size">51.5 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/users/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/users</span>
+      <span class="ep-meta" style="color:#f87171">Not JSON: Expecting value: line 1 column 1 (char 0)</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('whatsapp')">
+    <div>
+      <div class="section-title">📁 whatsapp</div>
+    </div>
+    <div class="section-counts">
+      <span class="count-chip count-json">📄 3 JSON</span>
+      <span class="count-chip count-txt">📝 0 TXT</span>
+      <span class="count-chip count-fail">❌ 3 Fail</span>
+    </div>
+    <button class="toggle-btn" id="btn-whatsapp">▶</button>
+  </div>
+  <div class="section-body" id="body-whatsapp">
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">whatsapp/ajax/response.json</span>
+      <span class="ep-meta">recordsFiltered=20, total=10448</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">14.7 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">whatsapp/devices/response.json</span>
+      <span class="ep-meta">recordsFiltered=1, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">374 B</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">✅</span>
+      <span class="ep-path">whatsapp/template/response.json</span>
+      <span class="ep-meta">recordsFiltered=2, total=</span>
+      <span class="ep-tag tag-json">JSON</span>
+      <span class="ep-size">7.1 KB</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/whatsapp/ajax</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/whatsapp/devices</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+    <div class="endpoint-row">
+      <span class="ep-icon">❌</span>
+      <span class="ep-path">/whatsapp/template</span>
+      <span class="ep-meta" style="color:#f87171">Parse error: [Errno 2] No such file or directory: '/root/pro</span>
+      <span class="ep-tag tag-fail">FAIL</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection('preview')">
+    <div><div class="section-title">🔍 Data Preview — Sample Records</div></div>
+    <button class="toggle-btn" id="btn-preview">▶</button>
+  </div>
+  <div class="section-body" id="body-preview">
+<div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Statistik User PPPoE <span style="color:#555">— pppoe/user/stats</span></div>
+  <div class="data-preview">{
+  "total": 1508,
+  "active": 1178,
+  "suspend": 277,
+  "disabled": 53
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">User Online PPPoE <span style="color:#555">— pppoe/online/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 1,
+  <span class="key">"recordsTotal"</span>: 1318,
+  <span class="key">"recordsFiltered"</span>: 1318,
+  "data": [
+    {
+      "id": 8568069,
+      "session_id": "81917df8",
+      "username": "MUJIYONO",
+      "nas": "CCR2116-BKT",
+      "nas_ip": "172.31.119.21",
+      "ip": "10.10.18.109",
+      "mac": "68:9F:F0:04:30:A5",
+      "uptime": "10 jam",
+      "input": "256,83 MB",
+      "output": "4,31 GB",
+      "start": "2026-05-16 23:35:42",
+      "update": "2026-05-17 09:35:42",
+      "stop": "-",
+      "status": 1,
+      "is_unknown": 0
+    },
+    {
+      "id": 8568070,
+      "session_id": "81917df9",
+      "username": "BUDIIRA</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">User Offline PPPoE <span style="color:#555">— pppoe/offline/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 1,
+  <span class="key">"recordsTotal"</span>: 57,
+  <span class="key">"recordsFiltered"</span>: 57,
+  "data": [
+    {
+      "id": 8575748,
+      "session_id": "819188d3",
+      "username": "ADISAPUTRA",
+      "nas": "CCR2116-BKT",
+      "nas_ip": "172.31.119.21",
+      "ip": "10.10.17.214",
+      "mac": "94:FF:61:1E:AE:81",
+      "uptime": "0 menit",
+      "input": "0 B",
+      "output": "0 B",
+      "start": "2026-05-17 09:35:41",
+      "update": "2026-05-17 09:35:41",
+      "stop": "2026-05-17 09:35:41",
+      "status": 2,
+      "is_unknown": 0
+    },
+    {
+      "id": 8575747,
+      "session_id": "819188d2",
+      "username": "</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Invoice Unpaid <span style="color:#555">— invoice/unpaid/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 1,
+  <span class="key">"recordsTotal"</span>: 314,
+  <span class="key">"recordsFiltered"</span>: 314,
+  "data": [
+    {
+      "id": 82214,
+      "no_invoice": "0573073503",
+      "id_pelanggan": "8413254445",
+      "pelanggan": "AZWIYATI",
+      "profile": "Standar - 10 Mbps",
+      "whatsapp": "085762759934",
+      "invoice_date": "15/06/2026",
+      "due_date": "15/06/2026",
+      "is_overdue": false,
+      "subscribe": "15/06/2026 s/d 15/07/2026",
+      "nominal": 199000,
+      "reseller": "-",
+      "tagih_status": null,
+      "status": "unpaid",
+      "item": "Internet: 8413254445 | Standar - 10 Mbps"
+    },
+    {
+      "id":</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Invoice Paid <span style="color:#555">— invoice/paid/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 1,
+  <span class="key">"recordsTotal"</span>: 10423,
+  <span class="key">"recordsFiltered"</span>: 10423,
+  "data": [
+    {
+      "id": 80295,
+      "no_invoice": "051461378791",
+      "id_pelanggan": "1802794500",
+      "pelanggan": "AZYAN",
+      "profile": "Standar - 10 Mbps",
+      "whatsapp": "085762760070",
+      "invoice_date": "08/05/2026",
+      "due_date": "15/05/2026",
+      "paid_date": "17/05/2026",
+      "paid_by": "midtrans",
+      "subscribe": "15/05/2026 s.d 15/06/2026",
+      "nominal": 199000,
+      "reseller": "-",
+      "wa_status": "failed",
+      "status": "paid",
+      "item": "Internet: 1802794500 - AZYAN </div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Statistik Transaksi <span style="color:#555">— transaksi/stats</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "data": {
+    "total_income": 237947536,
+    "total_expense": 0,
+    "profit": 237947536
+  }
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Hotspot User Stats <span style="color:#555">— hotspot/user/stats</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "total_user": 0,
+  "user_new": 0,
+  "user_active": 0,
+  "user_expired": 0
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">OLT Devices <span style="color:#555">— olt/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 0,
+  <span class="key">"recordsTotal"</span>: 0,
+  <span class="key">"recordsFiltered"</span>: 0,
+  "data": []
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">WhatsApp Devices <span style="color:#555">— whatsapp/devices</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "data": [
+    {
+      "id": 5,
+      "uuid": "fa9149c4-7ea1-49bf-99f5-a903bdd5dad3",
+      "shortname": "bangkunat",
+      "wa_number": "6281374370532",
+      "server": "mpwa.billingsmc.com",
+      "port": 3005,
+      "connected": false,
+      "status": 0,
+      "is_default": true,
+      "is_rotator": false,
+      "batch": 1,
+      "delay": 1
+    }
+  ]
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Mikrotik <span style="color:#555">— mikrotik/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 1,
+  <span class="key">"recordsTotal"</span>: 1,
+  <span class="key">"recordsFiltered"</span>: 1,
+  "data": [
+    {
+      "id": 13,
+      "name": "CCR2116-BKT",
+      "type": "vpn",
+      "ip_router": "172.31.119.21",
+      "snmp": null,
+      "script": 1,
+      "action": "\n                <div class=\"d-flex justify-content-center gap-1\">\n                    <button class=\"btn btn-sm btn-soft-primary btn-mikrotik-edit\" data-id=\"13\">\n                        <i class=\"ri-edit-2-line\"></i>\n                    </button>\n                    <button class=\"btn btn-sm btn-soft-danger btn-mikrotik-delete\"\n                 </div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Map User Options <span style="color:#555">— map/user/options</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "data": [
+    "PTU",
+    "WYH"
+  ],
+  "pops": [
+    "PTU",
+    "WYH"
+  ],
+  "odps": []
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Map ODP Data <span style="color:#555">— map/odp/data</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "data": []
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Perusahaan Info <span style="color:#555">— perusahaan/company/get</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "data": {
+    "name": "Star Connect Internet",
+    "singkatan": "",
+    "slogan": "",
+    "email": "csstarconnect@gmail.com",
+    "wa": "081374370532",
+    "address": "Pesisir barat",
+    "website": "",
+    "logo_light": "https://my.mitraserayu.net/storage/company-logo/bangkunat/ZNn58HnRoPdhMbEqIM4PLJTnbjKvDaQCLwJWSF33.png",
+    "logo_dark": "https://my.mitraserayu.net/storage/company-logo/bangkunat/cm4Op2aUajDK5Fm9FMO97JHHCdWq21thgABHfNLr.png",
+    "logo_mini": "https://my.mitraserayu.net/storage/company-logo/bangkunat/Tj5igoPOD4gQs7LJ2XsOvd4YxtRBXjY6oXyupme1.png"
+  }
+}</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Payment Gateway <span style="color:#555">— payment-gateway/ajax</span></div>
+  <div class="data-preview">{
+  "draw": 1,
+  <span class="key">"recordsTotal"</span>: 100,
+  <span class="key">"recordsFiltered"</span>: 100,
+  "data": [
+    {
+      "id": 19233,
+      "tanggal": "2026-05-17 16:31",
+      "ref_id": "051452595214",
+      "metode": "Qris",
+      "kategori": "invoice",
+      "deskripsi": "Pembayaran invoice: 051452595214 a.n MILYANI via Midtrans",
+      "gross_amount": 199000,
+      "fee_amount": 3980,
+      "debit": 0,
+      "kredit": 195020,
+      "saldo": 1056118791,
+      "gateway": "midtrans"
+    },
+    {
+      "id": 19234,
+      "tanggal": "2026-05-17 16:31",
+      "ref_id": "051461378791",
+      "metode": "Bank_transfer",
+      "kat</div>
+</div><div style="margin-bottom:16px">
+  <div style="color:#888;font-size:12px;margin-bottom:4px">Tiket Stats <span style="color:#555">— tiket/gangguan/stats</span></div>
+  <div class="data-preview">{
+  "ok": true,
+  "message": "OK",
+  "data": {
+    "month": 58,
+    "last_month": 63,
+    "open": 0,
+    "closed": 603
+  }
+}</div>
+</div>
+  </div>
+</div>
+
+<div class="footer">
+  Generated by download_api_v2.py · 2026-05-17 18:25:31 · adaCODE Platform
+</div>
+<script>
+function toggleSection(id) {
+  var body = document.getElementById('body-' + id);
+  var btn = document.getElementById('btn-' + id);
+  body.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+// Auto-open first section
+document.getElementById('body-' + document.querySelector('.section').id.replace('body-','')).classList.add('open');
+</script>
+</body></html>

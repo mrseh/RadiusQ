@@ -1,0 +1,27 @@
+# =============================================================
+# CLIENT CONFIG FOR MIKROTIK POP WYH (Pesisir Barat)
+# File: /etc/openvpn/ccd/MKT-WYH-01
+# =============================================================
+# Konfigurasi khusus untuk Mikrotik di POP WYH
+# IP static agar mudah di-tracking di FreeRADIUS
+
+# Static IP untuk client ini
+ifconfig-push 172.31.119.10 255.255.255.0
+
+# Internal routing (route jaringan lokal di belakang Mikrotik)
+iroute 172.31.119.10 255.255.255.0
+
+# Disable broadcast
+#bcast
+
+# Custom DNS (jika diperlukan)
+#push "dhcp-option DNS 8.8.8.8"
+
+# Keepalive
+keepalive 10 60
+
+# Compression
+compress lz4-v2
+
+# Disable binding ke specific client ID (jika diperlukan)
+#nodevice

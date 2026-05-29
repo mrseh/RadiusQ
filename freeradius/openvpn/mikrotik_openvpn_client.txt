@@ -1,0 +1,219 @@
+# =============================================================
+# MIKROTIK OPENVPN CLIENT CONFIGURATION
+# =============================================================
+#
+# Panduan setup Mikrotik sebagai OpenVPN client.
+# Mikrotik akan terhubung ke OpenVPN server dan mendapat IP
+# di subnet 172.31.119.0/24.
+#
+# Melalui tunnel ini, Mikrotik bisa komunikasi dengan FreeRADIUS
+# server tanpa perlu IP public.
+#
+# =============================================================
+
+# =============================================================
+# MENU: System > Packages
+# =============================================================
+# Pastikan package "openvpn" sudah terinstall
+# Jika belum:
+#   /system/package/install
+#   [cari openvpn dan install]
+
+
+# =============================================================
+# STEP 1: Import OpenVPN Client Certificate (Optional - jika pakai TLS)
+# =============================================================
+# Jika server.conf pakai TLS authentication, import CA dan client cert:
+#
+# /certificate
+# import file-name=ca.crt
+# import file-name=client.crt
+# import file-name=client.key
+
+
+# =============================================================
+# STEP 2: Create OpenVPN Client Interface
+# =============================================================
+
+# Method A: Via Terminal (CLI)
+# ================================
+
+# Create OVPN client interface
+/interface ovpn-client
+add name=ovpn-out1 \
+    connect-to=<OPENVPN_SERVER_IP> \
+    port=1194 \
+    mode=ip \
+    protocol=udp \
+    user=<VPN_USERNAME> \
+    password=<VPN_PASSWORD> \
+    profile=default \
+    certificate=none \
+    cipher=aes256 \
+    auth=sha256 \
+    add-default-route=no
+
+# Verify connection
+/interface ovpn-client print
+/interface ovpn-client monitor ovpn-out1
+
+
+# Method B: Via Winbox
+# ================================
+# Menu: Interfaces > OVPN Client > Add New
+#
+# Tab General:
+#   Name: ovpn-out1
+#   Connect To: <OPENVPN_SERVER_IP>
+#   Port: 1194
+#   Protocol: UDP
+#
+# Tab Dial Out:
+#   Mode: IP
+#   User: <VPN_USERNAME>
+#   Password: <VPN_PASSWORD>
+#   Certificate: (none if using username/password only)
+#
+# Tab Options:
+#   Cipher: AES-256
+#   Auth: SHA256
+#   Add Default Route: No (jika tidak mau semua traffic lewat VPN)
+#
+# Click OK untuk connect
+
+
+# =============================================================
+# STEP 3: Configure RADIUS Client di Mikrotik
+# =============================================================
+
+# aktifkan RADIUS client
+/radius
+add address=172.31.119.2:1812 \
+    secret=testing123 \
+    service=hotspot,ppp \
+    timeout=3s
+
+# Set RADIUS untuk hotspot
+/ip hotspot
+set profile=<HOTSPOT_PROFILE> use-radius=yes \
+    radius-accounting=yes \
+    radius-interim-update=5m
+
+# Atau untuk PPPP:
+/ppp
+set profile=<PPPOE_PROFILE> use-radius=yes \
+    radius-accounting=yes
+
+
+# =============================================================
+# STEP 4: Configure Hotspot Profile (Jika belum ada)
+# =============================================================
+
+# Buat hotspot profile yang pakai RADIUS
+/ip hotspot profile
+add name=radius-hotspot \
+    login-by=http-chap,http-pap \
+    use-radius=yes \
+    radius-accounting=yes \
+    radius-interim-update=5m \
+    hotspot-address=192.168.88.1 \
+    dns-name=login.hotspot.net \
+    html-directory=hotspot
+
+
+# =============================================================
+# STEP 5: Configure Queue untuk Rate Limiting
+# =============================================================
+
+# Pastikan queue type sudah ada
+/queue type
+add name=pcq-download kind=pcq pcq-rate=0 pcq-classifier=dst-address
+add name=pcq-upload kind=pcq pcq-rate=0 pcq-classifier=src-address
+
+# Simple queue untuk limitar bandwidth
+/queue simple
+add name="RATE-LIMIT-10M" target=192.168.88.0/24 \
+    max-limit=10M/10M \
+    burst=12M/12M \
+    burst-time=10s/10s
+
+
+# =============================================================
+# STEP 6: Troubleshooting
+# =============================================================
+
+# Cek OVPN interface status
+/interface ovpn-client print detail
+
+# Cek RADIUS connection
+/radius print
+/radius monitor 0
+
+# Cek apakah RADIUS request keluar
+/tool sniffer quick ip-protocol=udp dst-port=1812
+
+# Cek log
+/log print where topics~"radius"
+
+# Test RADIUS manual dari Mikrotik
+/radius test <server_ip> secret=<secret> interface=<interface>
+
+
+# =============================================================
+# STEP 7: Verify Complete Setup
+# =============================================================
+
+# 1. Cek OVPN connected:
+#    /interface print where type=ovpn-client
+#    Status: should show "R" (running)
+
+# 2. Cek IP dapat:
+#    /ip address print
+#    Should show 172.31.119.x untuk interface ovpn-out1
+
+# 3. Cek ping ke RADIUS server:
+#    /ping 172.31.119.2
+
+# 4. Test login hotspot dengan user dari Laravel
+#    User harus bisa login dan dapat speed sesuai paket
+
+
+# =============================================================
+# SCRIPT: Auto Reconnect OpenVPN
+# =============================================================
+
+# Buat script untuk auto reconnect jika VPN down
+
+/system script
+add name="ovpn-reconnect" source={
+    :if ([/interface ovpn-client find name=ovpn-out1 running]=false) do={
+        :log info "OpenVPN disconnected, reconnecting..."
+        /interface ovpn-client disable ovpn-out1
+        :delay 2
+        /interface ovpn-client enable ovpn-out1
+        :log info "OpenVPN reconnected"
+    }
+}
+
+# Schedule untuk jalankan setiap 1 menit
+/system scheduler
+add name="ovpn-check" interval=1m on-event=ovpn-reconnect \
+    policy=read,write,test
+
+
+# =============================================================
+# NOTES
+# =============================================================
+
+# 1. Pastikan firewall Mikrotik allow UDP port 1194 untuk outgoing
+#    /ip firewall filter add chain=output action=accept \
+#        protocol=udp dst-port=1194 out-interface=public
+
+# 2. Jika pakai certificate auth, ubah:
+#    certificate=imported-cert-name
+
+# 3. Untuk disable auto-reconnect:
+#    /system scheduler disable ovpn-check
+
+# 4. Check bandwidth usage:
+#    /interface monitor-traffic ovpn-out1

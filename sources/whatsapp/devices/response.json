@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "data": [
+    {
+      "id": 5,
+      "uuid": "fa9149c4-7ea1-49bf-99f5-a903bdd5dad3",
+      "shortname": "bangkunat",
+      "wa_number": "6281374370532",
+      "server": "mpwa.billingsmc.com",
+      "port": 3005,
+      "connected": false,
+      "status": 0,
+      "is_default": true,
+      "is_rotator": false,
+      "batch": 1,
+      "delay": 1
+    }
+  ]
+}

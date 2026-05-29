@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "message": "OK",
+  "data": {
+    "month": 58,
+    "last_month": 63,
+    "open": 0,
+    "closed": 603
+  }
+}

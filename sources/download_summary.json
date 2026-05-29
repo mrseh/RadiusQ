@@ -1,0 +1,830 @@
+{
+  "generated_at": "2026-05-17T17:54:25.717979",
+  "base_url": "https://my.mitraserayu.net",
+  "total_endpoints": 86,
+  "static_endpoints": 73,
+  "dynamic_endpoints": 13,
+  "success": 53,
+  "errors": 20,
+  "skipped": 13,
+  "by_category": {
+    "PPPoE": {
+      "total": 10,
+      "success": 5,
+      "error": 2,
+      "skipped": 3,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/pppoe/user/ajax",
+          "output": "/root/project/api-responses/pppoe/user/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "stats",
+          "url": "/pppoe/user/stats",
+          "output": "/root/project/api-responses/pppoe/user/stats",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "userMonthlyGraph",
+          "url": "/pppoe/user/graph/user-monthly",
+          "output": "/root/project/api-responses/pppoe/user/graph/user-monthly",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "detail",
+          "url": "/pppoe/user/detail/:id",
+          "output": "/root/project/api-responses/pppoe/user/detail/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "printKartu",
+          "url": "/pppoe/user/print/kartu",
+          "output": "/root/project/api-responses/pppoe/user/print/kartu",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "printStiker",
+          "url": "/pppoe/user/print/stiker",
+          "output": "/root/project/api-responses/pppoe/user/print/stiker",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "session",
+          "url": "/pppoe/user/session/:id",
+          "output": "/root/project/api-responses/pppoe/user/session/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "traffic",
+          "url": "/pppoe/user/traffic/:id",
+          "output": "/root/project/api-responses/pppoe/user/traffic/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "exportXls",
+          "url": "/pppoe/user/export/xls",
+          "output": "/root/project/api-responses/pppoe/user/export/xls",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "exportRsc",
+          "url": "/pppoe/user/export/rsc",
+          "output": "/root/project/api-responses/pppoe/user/export/rsc",
+          "status": "error",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "PPPoE_Online": {
+      "total": 2,
+      "success": 1,
+      "error": 0,
+      "skipped": 1,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/pppoe/online/ajax",
+          "output": "/root/project/api-responses/pppoe/online/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "detail",
+          "url": "/pppoe/session/detail/:id",
+          "output": "/root/project/api-responses/pppoe/session/detail/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        }
+      ]
+    },
+    "PPPoE_Offline": {
+      "total": 1,
+      "success": 1,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/pppoe/offline/ajax",
+          "output": "/root/project/api-responses/pppoe/offline/ajax",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "PPPoE_Profile": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/pppoe/profile/ajax",
+          "output": "/root/project/api-responses/pppoe/profile/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/pppoe/profile",
+          "output": "/root/project/api-responses/pppoe/profile",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Hotspot_User": {
+      "total": 6,
+      "success": 1,
+      "error": 5,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/hotspot/user/ajax",
+          "output": "/root/project/api-responses/hotspot/user/ajax",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "print",
+          "url": "/hotspot/user/print",
+          "output": "/root/project/api-responses/hotspot/user/print",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "detail",
+          "url": "/hotspot/user/detail",
+          "output": "/root/project/api-responses/hotspot/user/detail",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "credentials",
+          "url": "/hotspot/user/credentials",
+          "output": "/root/project/api-responses/hotspot/user/credentials",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "resellerMeta",
+          "url": "/hotspot/user/reseller",
+          "output": "/root/project/api-responses/hotspot/user/reseller",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "stats",
+          "url": "/hotspot/user/stats",
+          "output": "/root/project/api-responses/hotspot/user/stats",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Hotspot_Session": {
+      "total": 1,
+      "success": 1,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/hotspot/session/ajax",
+          "output": "/root/project/api-responses/hotspot/session/ajax",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Hotspot_Profile": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/hotspot/profile/ajax",
+          "output": "/root/project/api-responses/hotspot/profile/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/hotspot/profile",
+          "output": "/root/project/api-responses/hotspot/profile",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Hotspot_Template": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/hotspot/template/ajax",
+          "output": "/root/project/api-responses/hotspot/template/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/hotspot/template",
+          "output": "/root/project/api-responses/hotspot/template",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Hotspot_Voucher": {
+      "total": 4,
+      "success": 2,
+      "error": 1,
+      "skipped": 1,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/hotspot/sold/ajax",
+          "output": "/root/project/api-responses/hotspot/sold/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "stats",
+          "url": "/hotspot/sold/stats",
+          "output": "/root/project/api-responses/hotspot/sold/stats",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "detail",
+          "url": "/hotspot/sold/detail/:id",
+          "output": "/root/project/api-responses/hotspot/sold/detail/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "export",
+          "url": "/hotspot/sold/export",
+          "output": "/root/project/api-responses/hotspot/sold/export",
+          "status": "error",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Mitra_Reseller": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/mitra/reseller/ajax",
+          "output": "/root/project/api-responses/mitra/reseller/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/mitra/reseller",
+          "output": "/root/project/api-responses/mitra/reseller",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Mitra_Biller": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/mitra/biller/ajax",
+          "output": "/root/project/api-responses/mitra/biller/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/mitra/biller",
+          "output": "/root/project/api-responses/mitra/biller",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Mitra_Outlet": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/mitra/outlet/ajax",
+          "output": "/root/project/api-responses/mitra/outlet/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/mitra/outlet",
+          "output": "/root/project/api-responses/mitra/outlet",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Mitra_Deposit": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/mitra/deposit/ajax",
+          "output": "/root/project/api-responses/mitra/deposit/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/mitra/deposit",
+          "output": "/root/project/api-responses/mitra/deposit",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Invoice_Unpaid": {
+      "total": 6,
+      "success": 2,
+      "error": 2,
+      "skipped": 2,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/invoice/unpaid/ajax",
+          "output": "/root/project/api-responses/invoice/unpaid/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "export",
+          "url": "/invoice/unpaid/export",
+          "output": "/root/project/api-responses/invoice/unpaid/export",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "print",
+          "url": "/invoice/unpaid/print",
+          "output": "/root/project/api-responses/invoice/unpaid/print",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "detail",
+          "url": "/invoice/unpaid/detail/:id",
+          "output": "/root/project/api-responses/invoice/unpaid/detail/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "pelangganSearch",
+          "url": "/invoice/unpaid/pelanggan/search",
+          "output": "/root/project/api-responses/invoice/unpaid/pelanggan/search",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "pelangganDetail",
+          "url": "/invoice/unpaid/pelanggan/:id",
+          "output": "/root/project/api-responses/invoice/unpaid/pelanggan/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        }
+      ]
+    },
+    "Invoice_Paid": {
+      "total": 4,
+      "success": 1,
+      "error": 2,
+      "skipped": 1,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/invoice/paid/ajax",
+          "output": "/root/project/api-responses/invoice/paid/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "export",
+          "url": "/invoice/paid/export",
+          "output": "/root/project/api-responses/invoice/paid/export",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "print",
+          "url": "/invoice/paid/print",
+          "output": "/root/project/api-responses/invoice/paid/print",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "detail",
+          "url": "/invoice/paid/detail/:id",
+          "output": "/root/project/api-responses/invoice/paid/detail/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        }
+      ]
+    },
+    "Map_User": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "options",
+          "url": "/map/user/options",
+          "output": "/root/project/api-responses/map/user/options",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "data",
+          "url": "/map/user/data",
+          "output": "/root/project/api-responses/map/user/data",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Map_ODP": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "options",
+          "url": "/map/odp/options",
+          "output": "/root/project/api-responses/map/odp/options",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "data",
+          "url": "/map/odp/data",
+          "output": "/root/project/api-responses/map/odp/data",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Mikrotik": {
+      "total": 2,
+      "success": 1,
+      "error": 0,
+      "skipped": 1,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/mikrotik/ajax",
+          "output": "/root/project/api-responses/mikrotik/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "show",
+          "url": "/mikrotik/show/:id",
+          "output": "/root/project/api-responses/mikrotik/show/_P_id",
+          "status": "skipped",
+          "is_dynamic": true
+        }
+      ]
+    },
+    "WhatsApp": {
+      "total": 3,
+      "success": 3,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/whatsapp/ajax",
+          "output": "/root/project/api-responses/whatsapp/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "devices",
+          "url": "/whatsapp/devices",
+          "output": "/root/project/api-responses/whatsapp/devices",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "tplGet",
+          "url": "/whatsapp/template",
+          "output": "/root/project/api-responses/whatsapp/template",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "OLT": {
+      "total": 5,
+      "success": 2,
+      "error": 3,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/olt/ajax",
+          "output": "/root/project/api-responses/olt/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/olt",
+          "output": "/root/project/api-responses/olt",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "oltStatus",
+          "url": "/status",
+          "output": "/root/project/api-responses/status",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "hiosoBase",
+          "url": "/olt/hioso",
+          "output": "/root/project/api-responses/olt/hioso",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "hsgqBase",
+          "url": "/olt/hsgq",
+          "output": "/root/project/api-responses/olt/hsgq",
+          "status": "error",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Transaksi": {
+      "total": 6,
+      "success": 3,
+      "error": 3,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/transaksi/ajax",
+          "output": "/root/project/api-responses/transaksi/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/transaksi",
+          "output": "/root/project/api-responses/transaksi",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "exportCsv",
+          "url": "/transaksi/export/csv",
+          "output": "/root/project/api-responses/transaksi/export/csv",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "reportDaily",
+          "url": "/transaksi/report/daily",
+          "output": "/root/project/api-responses/transaksi/report/daily",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "reportMonthly",
+          "url": "/transaksi/report/monthly",
+          "output": "/root/project/api-responses/transaksi/report/monthly",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "stats",
+          "url": "/transaksi/stats",
+          "output": "/root/project/api-responses/transaksi/stats",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Tiket_Gangguan": {
+      "total": 8,
+      "success": 4,
+      "error": 0,
+      "skipped": 4,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/tiket/gangguan/ajax",
+          "output": "/root/project/api-responses/tiket/gangguan/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "stats",
+          "url": "/tiket/gangguan/stats",
+          "output": "/root/project/api-responses/tiket/gangguan/stats",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "ambil",
+          "url": "/tiket/gangguan/:id/ambil",
+          "output": "/root/project/api-responses/tiket/gangguan/_P_id/ambil",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "tutup",
+          "url": "/tiket/gangguan/:id/tutup",
+          "output": "/root/project/api-responses/tiket/gangguan/_P_id/tutup",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "detail",
+          "url": "/tiket/gangguan/:id/detail",
+          "output": "/root/project/api-responses/tiket/gangguan/_P_id/detail",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "pelangganSearch",
+          "url": "/tiket/gangguan/pelanggan/search",
+          "output": "/root/project/api-responses/tiket/gangguan/pelanggan/search",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "pelangganConn",
+          "url": "/tiket/gangguan/pelanggan/:id/conn",
+          "output": "/root/project/api-responses/tiket/gangguan/pelanggan/_P_id/conn",
+          "status": "skipped",
+          "is_dynamic": true
+        },
+        {
+          "key": "teknisiList",
+          "url": "/tiket/gangguan/getTeknisi",
+          "output": "/root/project/api-responses/tiket/gangguan/getTeknisi",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Payment_Gateway": {
+      "total": 1,
+      "success": 1,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/payment-gateway/ajax",
+          "output": "/root/project/api-responses/payment-gateway/ajax",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Perusahaan": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "companyGet",
+          "url": "/perusahaan/company/get",
+          "output": "/root/project/api-responses/perusahaan/company/get",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "bankList",
+          "url": "/perusahaan/bank/list",
+          "output": "/root/project/api-responses/perusahaan/bank/list",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Users": {
+      "total": 2,
+      "success": 2,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/users/ajax",
+          "output": "/root/project/api-responses/users/ajax",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "base",
+          "url": "/users",
+          "output": "/root/project/api-responses/users",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Log": {
+      "total": 1,
+      "success": 1,
+      "error": 0,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "ajax",
+          "url": "/log/ajax",
+          "output": "/root/project/api-responses/log/ajax",
+          "status": "success",
+          "is_dynamic": false
+        }
+      ]
+    },
+    "Profile": {
+      "total": 4,
+      "success": 2,
+      "error": 2,
+      "skipped": 0,
+      "endpoints": [
+        {
+          "key": "profileGet",
+          "url": "/profile/ajax/profile",
+          "output": "/root/project/api-responses/profile/ajax/profile",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "licenseGet",
+          "url": "/profile/ajax/license",
+          "output": "/root/project/api-responses/profile/ajax/license",
+          "status": "success",
+          "is_dynamic": false
+        },
+        {
+          "key": "passwordChange",
+          "url": "/profile/ajax/password",
+          "output": "/root/project/api-responses/profile/ajax/password",
+          "status": "error",
+          "is_dynamic": false
+        },
+        {
+          "key": "licenseRenew",
+          "url": "/profile/ajax/license-renew",
+          "output": "/root/project/api-responses/profile/ajax/license-renew",
+          "status": "error",
+          "is_dynamic": false
+        }
+      ]
+    }
+  }
+}

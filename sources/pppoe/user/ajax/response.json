@@ -1,0 +1,227 @@
+{
+  "draw": 1,
+  "recordsTotal": 1508,
+  "recordsFiltered": 1508,
+  "data": [
+    {
+      "id": 33390,
+      "username": "AZWIYATI",
+      "inet": "10.10.17.152",
+      "session": {
+        "session_id": "819186dd",
+        "status": 1,
+        "ip": "10.10.17.152"
+      },
+      "id_pelanggan": "8413254445",
+      "full_name": "AZWIYATI",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-17 13:53:39",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33388,
+      "username": "SATRIAROMZADIPRATAMA",
+      "inet": "10.10.22.139",
+      "session": {
+        "session_id": "8191858d",
+        "status": 1,
+        "ip": "10.10.22.139"
+      },
+      "id_pelanggan": "7827927523",
+      "full_name": "SATRIA ROMZADI PRATAMA",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-17 12:56:48",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33379,
+      "username": "YUDIAKROMI",
+      "inet": "10.10.18.16",
+      "session": {
+        "session_id": "8191863f",
+        "status": 1,
+        "ip": "10.10.18.16"
+      },
+      "id_pelanggan": "9439990123",
+      "full_name": "YUDIAKROMI",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-16 18:07:51",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33378,
+      "username": "SAIPULROHMI",
+      "inet": "10.15.17.187",
+      "session": {
+        "session_id": "81917bb1",
+        "status": 1,
+        "ip": "10.15.17.187"
+      },
+      "id_pelanggan": "3331132477",
+      "full_name": "SAIPUL ROHMI",
+      "profile": "Premium - 15 Mbps",
+      "nas": "ALL",
+      "pop": "PTU",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-16 17:22:24",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33375,
+      "username": "NASRUDI",
+      "inet": "10.10.21.204",
+      "session": {
+        "session_id": "819182f8",
+        "status": 1,
+        "ip": "10.10.21.204"
+      },
+      "id_pelanggan": "7805397303",
+      "full_name": "NASRUDI",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-16 16:39:13",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33370,
+      "username": "AWALLUDIN",
+      "inet": "10.10.16.64",
+      "session": {
+        "session_id": "81916a1a",
+        "status": 1,
+        "ip": "10.10.16.64"
+      },
+      "id_pelanggan": "9558632806",
+      "full_name": "AWALLUDIN",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "-",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-16 13:42:53",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33366,
+      "username": "IMRON",
+      "inet": "10.10.17.185",
+      "session": {
+        "session_id": "81917d60",
+        "status": 1,
+        "ip": "10.10.17.185"
+      },
+      "id_pelanggan": "8143465517",
+      "full_name": "IMRON",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-16 11:58:38",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33361,
+      "username": "SURYANTO",
+      "inet": "10.10.17.51",
+      "session": {
+        "session_id": "81917cf2",
+        "status": 1,
+        "ip": "10.10.17.51"
+      },
+      "id_pelanggan": "8870788720",
+      "full_name": "SURYANTO",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-15 16:53:36",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33357,
+      "username": "ADIRASUPIARAHMAN",
+      "inet": "10.10.22.117",
+      "session": {
+        "session_id": "81918563",
+        "status": 1,
+        "ip": "10.10.22.117"
+      },
+      "id_pelanggan": "2230878154",
+      "full_name": "ADIRASUPIARAHMAN",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "PTU",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-15 15:48:16",
+      "billing_period": "Fixed Date"
+    },
+    {
+      "id": 33356,
+      "username": "NURYANI",
+      "inet": "10.10.15.154",
+      "session": {
+        "session_id": "81917c3f",
+        "status": 1,
+        "ip": "10.10.15.154"
+      },
+      "id_pelanggan": "7963150415",
+      "full_name": "NURYANI",
+      "profile": "Standar - 10 Mbps",
+      "nas": "ALL",
+      "pop": "WYH",
+      "odp": "-",
+      "reseller": "-",
+      "next_due": "2026-06-14T17:00:00.000000Z",
+      "next_invoice": "2026-07-14T17:00:00.000000Z",
+      "status": 1,
+      "created_at": "2026-05-15 15:45:45",
+      "billing_period": "Fixed Date"
+    }
+  ]
+}

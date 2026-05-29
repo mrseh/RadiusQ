@@ -1,0 +1,4 @@
+https://syncwa.my.id/pppoe/user/index.html
+https://syncwa.my.id/pppoe/profile/index.html
+https://syncwa.my.id/pppoe/offline/index.html
+https://syncwa.my.id/pppoe/online/index.html

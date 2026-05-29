@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+<html >
+
+<head>
+    <meta charset="utf-8" />
+<title>Biller | SMC BY FRRADIUS</title>
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+
+<meta name="csrf-token" content="nsCKrilYJb53zwbkBYj5YW3KJrOg2OtPKWolzcQI">
+
+<meta name="description"
+      content="FRRADIUS adalah platform billing dan manajemen pelanggan ISP berbasis RADIUS untuk PPPoE dan Hotspot, dilengkapi sistem tagihan, pembayaran, dan monitoring koneksi." />
+
+<meta name="keywords"
+      content="FRRADIUS, RADIUS, PPPoE, Hotspot, ISP Billing, Internet Billing System, Network Management, User Management ISP" />
+
+<meta content="FRRADIUS" name="author" />
+
+<meta property="og:url" content="https://my.mitraserayu.net" />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:type" content="website" />
+
+<meta property="og:site_name" content="SMC BY FRRADIUS" />
+<meta property="og:title" content="SMC BY FRRADIUS" />
+
+<meta property="og:image" content="https://my.mitraserayu.net/images/favicon.ico" />
+
+<link rel="canonical" href="https://my.mitraserayu.net" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://my.mitraserayu.net/images/favicon.ico" />
+<link rel="icon" sizes="32x32" href="https://my.mitraserayu.net/images/favicon.ico" />
+<link rel="icon" sizes="16x16" href="https://my.mitraserayu.net/images/favicon.ico" />
+<link rel="shortcut icon" href="https://my.mitraserayu.net/images/favicon.ico" />
+    
+    <script>
+	    const html = document.documentElement
+	    const storageKey = '__THEME_CONFIG__'
+	    const savedConfig = sessionStorage.getItem(storageKey) || localStorage.getItem(storageKey)
+	    const sessionConfig = sessionStorage.getItem(storageKey)
+	    if (sessionConfig) {
+	        try {
+	            localStorage.setItem(storageKey, sessionConfig)
+	        } catch (e) {}
+	    }
+
+    // Default config
+    const defaultConfig = {
+        orientation: 'vertical',
+        skin: 'default',
+        theme: 'light',
+        'topbar-color': 'light',
+        'sidenav-color': 'light',
+        'sidenav-size': 'on-hover-active',
+        position: 'fixed',
+        width: 'full',
+        'sidenav-user': false,
+    }
+
+    function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+
+    // Build config from HTML attributes
+    const htmlConfig = {
+        skin: html.getAttribute('data-skin') || defaultConfig['skin'],
+        theme: html.getAttribute('data-bs-theme') === 'system' ? getSystemTheme() : html.getAttribute('data-bs-theme') || (defaultConfig['theme'] === 'system' ? getSystemTheme() : defaultConfig['theme']),
+        'topbar-color': html.getAttribute('data-topbar-color') || defaultConfig['topbar-color'],
+        'sidenav-color': html.getAttribute('data-menu-color') || defaultConfig['sidenav-color'],
+        'sidenav-size': html.getAttribute('data-sidenav-size') || defaultConfig['sidenav-size'],
+        'sidenav-user': html.hasAttribute('data-sidenav-user') || defaultConfig['sidenav-user'],
+        position: html.getAttribute('data-layout-position') || defaultConfig['position'],
+    }
+
+    // Save merged config as defaults globally
+    window.defaultConfig = structuredClone(htmlConfig)
+
+    // Load from session if exists
+	    let config = savedConfig ? JSON.parse(savedConfig) : htmlConfig
+	    window.config = config
+
+    // Apply layout attributes immediately
+    html.setAttribute('data-skin', config['skin'])
+    html.setAttribute('data-bs-theme', config['theme'] === 'system' ? getSystemTheme() : config['theme'])
+    html.setAttribute('data-menu-color', config['sidenav-color'])
+    html.setAttribute('data-topbar-color', config['topbar-color'])
+    html.setAttribute('data-layout-position', config['position'])
+
+    if (config['sidenav-size']) {
+        let size = config['sidenav-size']
+
+        if (window.innerWidth <= 767) {
+            size = 'offcanvas'
+        } else if (window.innerWidth <= 1140 && !['offcanvas'].includes(size)) {
+            size = 'condensed'
+        }
+
+        html.setAttribute('data-sidenav-size', size)
+
+        if (config['sidenav-user'] === true) {
+            html.setAttribute('data-sidenav-user', 'true')
+        } else {
+            html.removeAttribute('data-sidenav-user')
+        }
+    }
+</script>
+<link rel="preload" as="style" href="https://my.mitraserayu.net/build/assets/vendor-vIxoYmDz.css" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/vendor-D1VGIIPf.js" /><link rel="stylesheet" href="https://my.mitraserayu.net/build/assets/vendor-vIxoYmDz.css" /><script type="module" src="https://my.mitraserayu.net/build/assets/vendor-D1VGIIPf.js"></script></head>
+
+<body>
+    <div class="wrapper">
+        <header class="app-topbar">
+    <div class="container-fluid topbar-menu">
+        <div class="d-flex align-items-center gap-2">
+            <!-- Topbar Brand Logo -->
+            <div class="logo-topbar">
+                <!-- Logo light -->
+                <a class="logo-light" href="https://my.mitraserayu.net">
+                    <span class="logo-lg">
+                        <img alt="logo" src="/images/logo.png" />
+                    </span>
+                    <span class="logo-sm">
+                        <img alt="small logo" src="/images/logo-sm.png" />
+                    </span>
+                </a>
+                <!-- Logo Dark -->
+                <a class="logo-dark" href="https://my.mitraserayu.net">
+                    <span class="logo-lg">
+                        <img alt="dark logo" src="/images/logo-black.png" />
+                    </span>
+                    <span class="logo-sm">
+                        <img alt="small logo" src="/images/logo-sm.png" />
+                    </span>
+                </a>
+            </div>
+            <!-- Sidebar Menu Toggle Button -->
+            <button class="sidenav-toggle-button btn btn-primary btn-icon">
+                <i class="ri ri-menu-line"></i>
+            </button>
+            <!-- Horizontal Menu Toggle Button -->
+            <button class="topnav-toggle-button px-2" data-bs-target="#topnav-menu" data-bs-toggle="collapse">
+                <i class="ri ri-menu-line"></i>
+            </button>
+            <div
+    id="server-clock"
+    class="d-none d-xl-flex align-items-center rounded border bg-white px-3 py-1 gap-2 small"
+    style="min-width: 210px;"
+>
+    <i class="ri-time-line text-primary"></i>
+
+    <span class="text-muted">
+        Waktu Server
+    </span>
+
+    <span class="vr mx-1 opacity-25"></span>
+
+    <span id="server-time-text" class="fw-semibold text-dark">
+        —
+    </span>
+</div>
+
+<script>
+(function () {
+
+  const clockEl = document.getElementById("server-time-text");
+  if (!clockEl) return;
+
+  // baseline waktu server (dari PHP)
+  const BASE_SERVER_MS = new Date("2026-05-17T16:52:29+07:00").getTime();
+
+  // timestamp browser saat halaman dimuat
+  const BASE_BROWSER_MS = Date.now();
+
+  let formatter = new Intl.DateTimeFormat("id-ID", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+
+  function renderClock() {
+
+    // selisih waktu berjalan sejak halaman dimuat
+    const elapsed = Date.now() - BASE_BROWSER_MS;
+
+    // waktu server sekarang = baseline server + elapsed
+    const nowServer = new Date(BASE_SERVER_MS + elapsed);
+
+    // format manual agar hasil: Kam, 25-12-2025 19:24:16
+    const parts = formatter.formatToParts(nowServer);
+
+    let out = {};
+    for (const p of parts) out[p.type] = p.value;
+
+    clockEl.textContent =
+      `${out.day}-${out.month}-${out.year} `
+    + `${out.hour}:${out.minute}:${out.second}`;
+  }
+
+  // render awal + live tiap 1 detik
+  renderClock();
+  setInterval(renderClock, 1000);
+
+})();
+</script>
+
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <div class="topbar-item d-none d-sm-flex">
+                <button class="topbar-link" data-bs-target="#theme-settings-offcanvas" data-bs-toggle="offcanvas" type="button">
+                    <i class="ri ri-settings-2-line topbar-link-icon"></i>
+                </button>
+            </div>
+	            <div class="topbar-item d-sm-flex" id="theme-toggler">
+	                <button class="topbar-link" id="light-dark-mode" type="button">
+	                    <i class="ri ri-moon-line topbar-link-icon mode-light-moon"></i>
+	                    <i class="ri ri-sun-line topbar-link-icon mode-light-sun"></i>
+	                </button>
+	            </div>
+	            <script>
+	                (() => {
+	                    const storageKey = "__THEME_CONFIG__"
+
+	                    const syncThemeConfigToLocal = () => {
+	                        try {
+	                            const sessionValue = sessionStorage.getItem(storageKey)
+	                            if (sessionValue) localStorage.setItem(storageKey, sessionValue)
+	                        } catch (e) {}
+	                    }
+
+	                    const deferSync = () => setTimeout(syncThemeConfigToLocal, 0)
+
+	                    const init = () => {
+	                        syncThemeConfigToLocal()
+
+	                        const themeToggle = document.getElementById("light-dark-mode")
+	                        if (themeToggle) themeToggle.addEventListener("click", deferSync)
+
+	                        const resetBtn = document.querySelector("#reset-layout")
+	                        if (resetBtn) resetBtn.addEventListener("click", deferSync)
+
+	                        document.addEventListener("change", (ev) => {
+	                            const target = ev.target
+	                            if (
+	                                target?.matches?.(
+	                                    'input[name="data-bs-theme"], input[name="data-skin"], input[name="data-menu-color"], input[name="data-sidenav-size"], input[name="data-layout-position"], input[name="data-topbar-color"], input[name="sidebar-user"]'
+	                                )
+	                            ) {
+	                                deferSync()
+	                            }
+	                        })
+	                    }
+
+	                    if (document.readyState === "loading") {
+	                        document.addEventListener("DOMContentLoaded", init)
+	                    } else {
+	                        init()
+	                    }
+	                })()
+	            </script>
+	            
+            <div class="topbar-item d-sm-flex" id="fullscreen-toggler">
+                <button class="topbar-link" data-toggle="fullscreen" type="button">
+                    <i class="ri ri-fullscreen-line topbar-link-icon"></i>
+                    <i class="ri ri-fullscreen-exit-line topbar-link-icon d-none"></i>
+                </button>
+            </div>
+            <div class="topbar-item nav-user" id="simple-user-dropdown">
+                <div class="dropdown">
+                    <a aria-expanded="false" aria-haspopup="false" class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown" href="#!">
+                        <img alt="user-image" class="rounded-circle me-lg-2 d-flex" src="/images/avatar.png" width="32" />
+                        <div class="d-lg-flex align-items-center gap-1 d-none">
+                            <h5 class="my-0">Ahmad Solihin</h5>
+                            <i class="ri ri-arrow-down-s-line align-middle"></i>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- Header -->
+                        <div class="dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Halo bossque 👋</h6>
+                        </div>
+                        <!-- My Profile -->
+                        <a class="dropdown-item" href="/profile">
+                            <i class="ri ri-user-line me-1 fs-lg align-middle"></i>
+                            <span class="align-middle">Profile</span>
+                        </a>
+                        <!-- Support -->
+                        <a class="dropdown-item" href="https://api.whatsapp.com/send?phone=6285155112192&text=Halo%20Min...%20%F0%9F%91%8B%20%0D%0A%0D%0ASaya%20pelanggan%20Frradius%20dan%20ingin%20menanyakan%20beberapa%20hal%20terkait%20layanan%20%F0%9F%98%8A">
+                            <i class="ri ri-customer-service-line me-1 fs-lg align-middle"></i>
+                            <span class="align-middle">Support Center</span>
+                        </a>
+                        <!-- Divider -->
+                        <div class="dropdown-divider"></div>
+                        <!-- Logout -->
+                        <form action="https://my.mitraserayu.net/logout" method="POST">
+                        <input type="hidden" name="_token" value="nsCKrilYJb53zwbkBYj5YW3KJrOg2OtPKWolzcQI" autocomplete="off">                        <button type="submit" class="dropdown-item text-danger fw-semibold">
+                            <i class="ri ri-logout-box-line me-1 fs-lg align-middle"></i>
+                            <span class="align-middle">Log Out</span>
+                        </button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Topbar End -->
+
+                                    <div class="sidenav-menu">
+
+    
+    <a class="logo" href="https://my.mitraserayu.net">
+        <span class="logo logo-light">
+            <span class="logo-lg">
+                <img alt="logo" src="/storage/company-logo/bangkunat/cm4Op2aUajDK5Fm9FMO97JHHCdWq21thgABHfNLr.png" />
+            </span>
+            <span class="logo-sm">
+                <img alt="small logo" src="/storage/company-logo/bangkunat/Tj5igoPOD4gQs7LJ2XsOvd4YxtRBXjY6oXyupme1.png" />
+            </span>
+        </span>
+        <span class="logo logo-dark">
+            <span class="logo-lg">
+                <img alt="dark logo" src="/storage/company-logo/bangkunat/ZNn58HnRoPdhMbEqIM4PLJTnbjKvDaQCLwJWSF33.png" />
+            </span>
+            <span class="logo-sm">
+                <img alt="small logo" src="/storage/company-logo/bangkunat/Tj5igoPOD4gQs7LJ2XsOvd4YxtRBXjY6oXyupme1.png" />
+            </span>
+        </span>
+    </a>
+
+    <!-- Sidebar Hover Menu Toggle Button -->
+    <button class="button-on-hover">
+        <i class="ri ri-circle-line align-middle"></i>
+    </button>
+    <!-- Full Sidebar Menu Close Button -->
+    <button class="button-close-offcanvas">
+        <i class="ri ri-menu-line align-middle"></i>
+    </button>
+    <div class="scrollbar" data-simplebar="">
+        <div class="sidenav-user" id="user-profile-condensed">
+            <div class="dropdown">
+                <a aria-expanded="false" aria-haspopup="false"
+                    class="dropdown-toggle drop-arrow-none link-reset sidenav-user-set-icon" data-bs-offset="0,12"
+                    data-bs-toggle="dropdown" href="#!">
+                    <span class="d-flex align-items-center gap-2">
+                        <img alt="user-image" class="rounded-circle mb-2 avatar-md" src="/images/avatar.png" />
+                        <span>
+                            <span class="sidenav-user-name fw-bold"> Ahmad Solihin</span>
+                            <span class="fs-12 fw-semibold" data-lang="user-role1"> Admin</span>
+                        </span>
+                        <i class="ri ri-arrow-down-s-line align-middle ms-auto"></i>
+                    </span>
+                </a>
+                <div class="dropdown-menu">
+                    <!-- Header -->
+                    <div class="dropdown-header noti-title">
+                        <h6 class="text-overflow m-0">Halo bossque 👋</h6>
+                    </div>
+                    <!-- My Profile -->
+                    <a class="dropdown-item" href="/profile">
+                        <i class="ri ri-user-line me-1 fs-lg align-middle"></i>
+                        <span class="align-middle">Profile</span>
+                    </a>
+                    <!-- Logout -->
+                    <form action="https://my.mitraserayu.net/logout" method="POST">
+                        <input type="hidden" name="_token" value="nsCKrilYJb53zwbkBYj5YW3KJrOg2OtPKWolzcQI" autocomplete="off">                        <button type="submit" class="dropdown-item text-danger fw-semibold">
+                            <i class="ri ri-logout-box-line me-1 fs-lg align-middle"></i>
+                            <span class="align-middle">Log Out</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--- Sidenav Menu -->
+        <div id="sidenav-menu">
+            <ul class="side-nav">
+                <li class="side-nav-title mt-2" data-lang="main">Main</li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/dashboard">
+                        <span class="menu-icon"><i class="ri ri-dashboard-2-line"></i></span>
+                        <span class="menu-text" data-lang="index">Dashboard</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a aria-controls="mitra" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse"
+                        href="#mitra">
+                        <span class="menu-icon"><i class="ri ri-user-community-line"></i></span>
+                        <span class="menu-text" data-lang="mitra">Mitra</span>
+                        <span class="badge text-bg-danger ms-auto">New</span>
+                    </a>
+                    <div class="collapse" id="mitra">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/mitra/reseller">
+                                    <span class="menu-text" data-lang="Reseller">Reseller</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/mitra/biller">
+                                    <span class="menu-text" data-lang="Biller">Biller</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/mitra/outlet">
+                                    <span class="menu-text" data-lang="Outlet">Outlet</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/mitra/deposit">
+                                    <span class="menu-text" data-lang="Deposit">Deposit</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="side-nav-item">
+                    <a aria-controls="hotspot" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse"
+                        href="#hotspot">
+                        <span class="menu-icon"><i class="ri ri-wifi-line"></i></span>
+                        <span class="menu-text" data-lang="hotspot">Hotspot</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="hotspot">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/hotspot/user">
+                                    <span class="menu-text" data-lang="User">User</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/hotspot/session">
+                                    <span class="menu-text" data-lang="Session">Session</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/hotspot/profile">
+                                    <span class="menu-text" data-lang="Profile">Profile</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/hotspot/template">
+                                    <span class="menu-text" data-lang="Template">Template</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/hotspot/sold">
+                                    <span class="menu-text" data-lang="Voucher Terjual">Voucher Terjual</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="side-nav-item">
+                    <a aria-controls="pppoe" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse"
+                        href="#pppoe">
+                        <span class="menu-icon"><i class="ri ri-user-heart-line"></i></span>
+                        <span class="menu-text" data-lang="PPPoE - DHCP">PPPoE - DHCP</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="pppoe">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/pppoe/user">
+                                    <span class="menu-text" data-lang="User">User</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/pppoe/online">
+                                    <span class="menu-text" data-lang="Online">Online</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/pppoe/offline">
+                                    <span class="menu-text" data-lang="Offline">Offline</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/pppoe/profile">
+                                    <span class="menu-text" data-lang="Profile">Profile</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="side-nav-item">
+                    <a aria-controls="invoice" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse"
+                        href="#invoice">
+                        <span class="menu-icon"><i class="ri ri-receipt-line"></i></span>
+                        <span class="menu-text" data-lang="invoice">Invoice</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="invoice">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/invoice/unpaid">
+                                    <span class="menu-text" data-lang="Belum Bayar">Belum Bayar</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/invoice/paid">
+                                    <span class="menu-text" data-lang="Sudah Bayar">Sudah Bayar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+               <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/transaksi">
+                        <span class="menu-icon"><i class="ri ri-wallet-3-line"></i></span>
+                        <span class="menu-text" data-lang="Transaksi">Transaksi</span>
+                    </a>
+                </li>
+
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/payment-gateway">
+                        <span class="menu-icon"><i class="ri ri-secure-payment-line"></i></span>
+                        <span class="menu-text" data-lang="Payment Gateway">Payment Gateway</span>
+                    </a>
+                </li>
+
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/moota">
+                        <span class="menu-icon"><i class="ri ri-bank-line"></i></span>
+                        <span class="menu-text" data-lang="Moota">Moota</span>
+                    </a>
+                </li>
+                <li class="side-nav-title mt-2" data-lang="Monitoring">Monitoring</li>
+                <li class="side-nav-item">
+                    <a aria-controls="map" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse"
+                        href="#map">
+                        <span class="menu-icon"><i class="ri ri-road-map-line"></i></span>
+                        <span class="menu-text" data-lang="Mapping">Mapping</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="map">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/map/user">
+                                    <span class="menu-text" data-lang="Map Pelanggan">Map Pelanggan</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/map/odp">
+                                    <span class="menu-text" data-lang="Map ODP">Map ODP</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/olt">
+                        <span class="menu-icon"><i class="ri ri-router-line"></i></span>
+                        <span class="menu-text" data-lang="OLT">OLT</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a aria-controls="acs" aria-expanded="false" class="side-nav-link" data-bs-toggle="collapse"
+                        href="#acs">
+                        <span class="menu-icon"><i class="ri ri-pages-line"></i></span>
+                        <span class="menu-text" data-lang="GenieACS">GenieACS</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="acs">
+                        <ul class="sub-menu">
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/acs-cloud">
+                                    <span class="menu-text" data-lang="Cloud">Cloud</span>
+                                </a>
+                            </li>
+                            <li class="side-nav-item">
+                                <a class="side-nav-link" href="https://my.mitraserayu.net/acs-mandiri">
+                                    <span class="menu-text" data-lang="Mandiri">Mandiri</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/tiket/gangguan">
+                        <span class="menu-icon"><i class="ri ri-ticket-2-line"></i></span>
+                        <span class="menu-text" data-lang="Tiket Gangguan">Tiket Gangguan</span>
+                    </a>
+                </li>
+                <li class="side-nav-title mt-2" data-lang="Setting">Setting</li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/perusahaan">
+                        <span class="menu-icon"><i class="ri ri-building-line"></i></span>
+                        <span class="menu-text" data-lang="Perusahaan">Perusahaan</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/whatsapp">
+                        <span class="menu-icon"><i class="ri ri-whatsapp-line"></i></span>
+                        <span class="menu-text" data-lang="Whatsapp">Whatsapp</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/mikrotik">
+                        <span class="menu-icon"><i class="ri ri-server-line"></i></span>
+                        <span class="menu-text" data-lang="Mikrotik">Mikrotik</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/users">
+                        <span class="menu-icon"><i class="ri ri-group-line"></i></span>
+                        <span class="menu-text" data-lang="Users">Users</span>
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a class="side-nav-link" href="https://my.mitraserayu.net/log">
+                        <span class="menu-icon"><i class="ri ri-history-line"></i></span>
+                        <span class="menu-text" data-lang="Log Aplikasi">Log Aplikasi</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sidenav Menu End -->
+                    
+        <div class="content-page">
+            <div class="container-fluid">
+                    <div class="page-title-head d-flex align-items-center">
+    <div class="flex-grow-1">
+        <h4 class="page-main-title m-0">Biller</h4>
+    </div>
+    <div class="text-end">
+        <ol class="breadcrumb m-0 py-0">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Frradius</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Mitra</a></li>
+            <li class="breadcrumb-item active">Biller</li>
+        </ol>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+
+                <div class="card-header border-light">
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <button class="btn btn-primary" id="btn-add-biller" type="button">
+                            <i class="ri ri-user-add-line me-1"></i> Tambah
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="biller-table" class="table table-custom table-centered table-hover w-100 mb-0">
+                        <thead class="bg-light align-middle bg-opacity-25 thead-sm">
+                            <tr class="text-uppercase fs-xxs">
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Username</th>
+                                <th>Reseller</th>
+                                <th>Whatsapp</th>
+                                <th>Saldo</th>
+                                <th>Limit Hutang</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="modal-confirm" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-confirm-title">Konfirmasi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modal-confirm-body">Are you sure?</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-danger" id="modal-confirm-ok">Ya, Lanjut</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="modal-biller-form" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <form class="modal-content" id="form-biller">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="biller-form-title">Tambah Biller</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="biller-id">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+  <label class="form-label d-block">Reseller <span class="text-danger">*</span></label>
+  <select class="form-select" id="f-reseller_id" data-toggle="select2" required>
+      <option value="">-- Pilih reseller --</option>
+      <option value="0">TANPA RESELLER</option>
+        </select>
+</div>
+                        <div class="col-md-6">
+                            <label class="form-label">Nama Biller <span class="text-danger">*</span></label>
+                            <input class="form-control" id="f-name" required placeholder="Nama lengkap biller">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Username <span class="text-danger">*</span></label>
+                            <input class="form-control" id="f-username" required placeholder="username">
+                            <small class="text-muted">
+                                Huruf kecil dan tanpa spasi
+                            </small>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">
+                                Password <span class="text-danger">*</span>
+                            </label>
+                            <input class="form-control" id="f-password" placeholder="password">
+                            <small class="text-muted">
+                                Isi untuk mengubah password
+                            </small>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <label class="form-label">Kode Unik (3 digit)</label>
+                            <div class="input-group">
+                                <input class="form-control" id="f-kode-unik" maxlength="3" placeholder="contoh: 123">
+                                <button class="btn btn-light" type="button" id="btn-gen-kode" title="Generate 3 digit">
+                                    <i class="ri ri-magic-line"></i>
+                                </button>
+                            </div>
+                            <small class="text-muted">* harus unik, angka 000-999</small>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Whatsapp</label>
+                            <input class="form-control" id="f-whatsapp" placeholder="08xxxx">
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label class="form-label">Alamat</label>
+                            <textarea class="form-control" id="f-alamat" rows="2" placeholder="Alamat"></textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Rekening Bank</label>
+                            <textarea class="form-control" id="f-rekening-bank" rows="2" placeholder="Bisa multi baris"></textarea>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Limit Hutang (Rp)</label>
+
+                            
+                            <input class="form-control money" id="f-limit-hutang-display" type="text"
+                                inputmode="numeric" placeholder="0" data-target="f-limit-hutang">
+
+                            
+                            <input type="hidden" id="f-limit-hutang" value="0">
+                        </div>
+
+                        <div class="col-12 d-none" id="form-error-wrap">
+                            <div class="alert alert-danger mb-0" id="form-error">Gagal menyimpan.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-light" type="button" data-bs-dismiss="modal">Batal</button>
+                    <button class="btn btn-primary" type="submit">
+                        <i class="ri ri-save-3-line me-1"></i> Simpan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+            </div>
+
+            <footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center small text-muted">
+                COPYRIGHT © SMC X FRRADIUS - ISP BILLING SYSTEM
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+
+        <div class="offcanvas offcanvas-end overflow-hidden" id="theme-settings-offcanvas" tabindex="-1">
+    <div class="d-flex justify-content-between text-bg-primary gap-2 p-3" style="background-image: url(/images/user-bg-pattern.png)">
+        <div>
+            <h5 class="mb-1 fw-bold text-white text-uppercase">Admin Customizer</h5>
+            <p class="text-white text-opacity-75 fst-italic fw-medium mb-0">Easily configure layout, styles, and preferences for your admin interface.</p>
+        </div>
+        <div class="flex-grow-0">
+            <button class="d-block btn btn-sm bg-white bg-opacity-25 text-white rounded-circle btn-icon" data-bs-dismiss="offcanvas" type="button">
+                <i class="ri ri-close-large-line fs-lg"></i>
+            </button>
+        </div>
+    </div>
+    <div class="offcanvas-body p-0 h-100" data-simplebar="">
+        <div class="p-3 border-bottom border-dashed" id="skin">
+            <h5 class="mb-3 fw-bold">Select Theme</h5>
+            <div class="row g-3">
+                <div class="col-6" id="skin-default">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="demo-skin-default" name="data-skin" type="radio" value="default" />
+                        <label class="form-check-label p-0 w-100" for="demo-skin-default">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/skin-default.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Default</h5>
+                </div>
+                <div class="col-6" id="skin-minimal">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="demo-skin-minimal" name="data-skin" type="radio" value="minimal" />
+                        <label class="form-check-label p-0 w-100" for="demo-skin-minimal">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/skin-minimal.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Minimal</h5>
+                </div>
+                <div class="col-6" id="skin-modern">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="demo-skin-modern" name="data-skin" type="radio" value="modern" />
+                        <label class="form-check-label p-0 w-100" for="demo-skin-modern">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/skin-modern.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Modern</h5>
+                </div>
+                <div class="col-6" id="skin-flat">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="demo-skin-flat" name="data-skin" type="radio" value="flat" />
+                        <label class="form-check-label p-0 w-100" for="demo-skin-flat">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/skin-flat.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Flat</h5>
+                </div>
+                <div class="col-6" id="skin-galaxy">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="demo-skin-galaxy" name="data-skin" type="radio" value="galaxy" />
+                        <label class="form-check-label p-0 w-100" for="demo-skin-galaxy">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/skin-galaxy.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Galaxy</h5>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-bottom border-dashed" id="theme">
+            <h5 class="mb-3 fw-bold">Color Scheme</h5>
+            <div class="row">
+                <div class="col-4" id="theme-light">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="layout-color-light" name="data-bs-theme" type="radio" value="light" />
+                        <label class="form-check-label p-0 w-100" for="layout-color-light">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/theme-light.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                </div>
+                <div class="col-4" id="theme-dark">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="layout-color-dark" name="data-bs-theme" type="radio" value="dark" />
+                        <label class="form-check-label p-0 w-100" for="layout-color-dark">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/theme-dark.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Dark</h5>
+                </div>
+                <div class="col-4" id="theme-system">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="layout-color-system" name="data-bs-theme" type="radio" value="system" />
+                        <label class="form-check-label p-0 w-100" for="layout-color-system">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/theme-system.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">System</h5>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-bottom border-dashed" id="topbar-color">
+            <h5 class="mb-3 fw-bold">Topbar Color</h5>
+            <div class="row g-3">
+                <div class="col-4" id="topbar-color-light">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="layout-topbar-color-light" name="data-topbar-color" type="radio" value="light" />
+                        <label class="form-check-label p-0 w-100" for="layout-topbar-color-light">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/topbar-color-light.png" />
+                        </label>
+                    </div>
+                    <h5 class="text-center text-muted mt-2 mb-0">Light</h5>
+                </div>
+                <div class="col-4" id="topbar-color-dark">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="layout-topbar-color-dark" name="data-topbar-color" type="radio" value="dark" />
+                        <label class="form-check-label p-0 w-100" for="layout-topbar-color-dark">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/topbar-color-dark.png" />
+                        </label>
+                    </div>
+                    <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                </div>
+                <div class="col-4" id="topbar-color-gray">
+                    <div class="form-check card-radio">
+                        <input class="form-check-input" id="layout-topbar-color-gray" name="data-topbar-color" type="radio" value="gray" />
+                        <label class="form-check-label p-0 w-100" for="layout-topbar-color-gray">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/topbar-color-gray.png" />
+                        </label>
+                    </div>
+                    <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-bottom border-dashed" id="sidenav-color">
+            <h5 class="mb-3 fw-bold">Sidenav Color</h5>
+            <div class="row g-3">
+                <div class="col-4" id="sidenav-color-light">
+                    <div class="form-check sidebar-setting card-radio">
+                        <input class="form-check-input" id="layout-sidenav-color-light" name="data-menu-color" type="radio" value="light" />
+                        <label class="form-check-label p-0 w-100" for="layout-sidenav-color-light">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/sidenav-color-light.png" />
+                        </label>
+                    </div>
+                    <h5 class="fs-sm text-center text-muted mt-2 mb-0">Light</h5>
+                </div>
+                <div class="col-4" id="sidenav-color-dark">
+                    <div class="form-check sidebar-setting card-radio">
+                        <input class="form-check-input" id="layout-sidenav-color-dark" name="data-menu-color" type="radio" value="dark" />
+                        <label class="form-check-label p-0 w-100" for="layout-sidenav-color-dark">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/sidenav-color-dark.png" />
+                        </label>
+                    </div>
+                    <h5 class="fs-sm text-center text-muted mt-2 mb-0">Dark</h5>
+                </div>
+                <div class="col-4" id="sidenav-color-gray">
+                    <div class="form-check sidebar-setting card-radio">
+                        <input class="form-check-input" id="layout-sidenav-color-gray" name="data-menu-color" type="radio" value="gray" />
+                        <label class="form-check-label p-0 w-100" for="layout-sidenav-color-gray">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/sidenav-color-gray.png" />
+                        </label>
+                    </div>
+                    <h5 class="fs-sm text-center text-muted mt-2 mb-0">Gray</h5>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-bottom border-dashed" id="sidenav-size">
+            <h5 class="mb-3 fw-bold">Sidebar Size</h5>
+            <div class="row g-3">
+                <div class="col-4" id="sidenav-size-default">
+                    <div class="form-check sidebar-setting card-radio">
+                        <input class="form-check-input" id="layout-sidenav-size-default" name="data-sidenav-size" type="radio" value="default" />
+                        <label class="form-check-label p-0 w-100" for="layout-sidenav-size-default">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/sidenav-size-default.png" />
+                        </label>
+                    </div>
+                    <h5 class="mb-0 text-center text-muted mt-2">Default</h5>
+                </div>
+                <div class="col-4" id="sidenav-size-on-hover">
+                    <div class="form-check sidebar-setting card-radio">
+                        <input class="form-check-input" id="layout-sidenav-size-small-hover" name="data-sidenav-size" type="radio" value="on-hover" />
+                        <label class="form-check-label p-0 w-100" for="layout-sidenav-size-small-hover">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/sidenav-size-on-hover.png" />
+                        </label>
+                    </div>
+                    <h5 class="mb-0 text-center text-muted mt-2">On Hover</h5>
+                </div>
+                <div class="col-4" id="sidenav-size-on-hover-active">
+                    <div class="form-check sidebar-setting card-radio">
+                        <input class="form-check-input" id="layout-sidenav-size-small-hover-active" name="data-sidenav-size" type="radio" value="on-hover-active" />
+                        <label class="form-check-label p-0 w-100" for="layout-sidenav-size-small-hover-active">
+                            <img alt="layout-img" class="img-fluid" src="/images/layouts/sidenav-size-on-hover-active.png" />
+                        </label>
+                    </div>
+                    <h5 class="mb-0 fs-base text-center text-muted mt-2">On Hover - Show</h5>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-bottom border-dashed" id="position">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="fw-bold mb-0">Layout Position</h5>
+                <div class="d-flex gap-1">
+                    <div id="position-fixed">
+                        <input class="btn-check" id="layout-position-fixed" name="data-layout-position" type="radio" value="fixed" />
+                        <label class="btn btn-sm btn-soft-warning w-sm" for="layout-position-fixed">Fixed</label>
+                    </div>
+                    <div id="position-scrollable">
+                        <input class="btn-check" id="layout-position-scrollable" name="data-layout-position" type="radio" value="scrollable" />
+                        <label class="btn btn-sm btn-soft-warning w-sm ms-0" for="layout-position-scrollable">Scrollable</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-3" id="sidenav-user">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <label class="fw-bold m-0" for="sidebaruser-check">Sidebar User Info</label>
+                </h5>
+                <div class="form-check form-switch fs-lg">
+                    <input class="form-check-input" id="sidebaruser-check" name="sidebar-user" type="checkbox" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-footer border-top p-3 text-center">
+        <div class="row justify-content-end">
+            <div class="col-6">
+                <button class="btn btn-danger fw-semibold py-2 w-100" id="reset-layout" type="button">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end offcanvas-->
+    </div>
+
+    <!-- App js -->
+<link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/app-ey_roCWP.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/_commonjsHelpers-DsqdWQfm.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/auto-sRkgK8jz.js" /><script type="module" src="https://my.mitraserayu.net/build/assets/app-ey_roCWP.js"></script>
+        <script>
+        window.CSRF_TOKEN = "nsCKrilYJb53zwbkBYj5YW3KJrOg2OtPKWolzcQI";
+        window.ROUTES = {
+            ajax: "https://my.mitraserayu.net/mitra/biller/ajax",
+            store: "https://my.mitraserayu.net/mitra/biller/store",
+            base: "https://my.mitraserayu.net/mitra/biller",
+        };
+    </script>
+    <link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/script-Cgyuhz_n.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/dataTables.bootstrap5.min-BqSAPdue.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/responsive.bootstrap5.min-DnPe15pH.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/sweetalert2.esm.all-BQxta0Da.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/jquery-C6dykQkE.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/select2-B7xjoarP.js" /><link rel="modulepreload" as="script" href="https://my.mitraserayu.net/build/assets/_commonjsHelpers-DsqdWQfm.js" /><script type="module" src="https://my.mitraserayu.net/build/assets/script-Cgyuhz_n.js"></script></body>
+
+</html>
