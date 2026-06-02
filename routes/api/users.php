@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\Api\Users\UsersController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\User\UserController;
 
 Route::prefix('users')->group(function () {
-    Route::get('/ajax', [UserController::class, 'ajax']);
-    Route::post('/', [UserController::class, 'store']);
-    Route::get('/', [UserController::class, 'show']);
-    Route::put('/{id}', [UserController::class, 'update']);
-    Route::delete('/{id}', [UserController::class, 'destroy']);
+    Route::get('/ajax', [UsersController::class, 'ajax']);
+    Route::post('/', [UsersController::class, 'store']);
+    Route::get('/', [UsersController::class, 'show']);
+    Route::put('/{id}', [UsersController::class, 'update']);
+    Route::delete('/{id}', [UsersController::class, 'destroy']);
 });

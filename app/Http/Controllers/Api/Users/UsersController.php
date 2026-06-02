@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api\Users;
 
 use App\Http\Controllers\Api\BaseApiController;
 use App\Http\Requests\Users\StoreUserRequest;
-use App\Models\User;
 use App\Models\Log;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -23,8 +23,8 @@ class UsersController extends BaseApiController
             : 1;
 
         $query = User::query()
-            ->when($request->filled('role'), fn($q) => $q->where('role', $request->input('role')))
-            ->when($request->filled('status'), fn($q) => $q->where('status', $request->input('status')))
+            ->when($request->filled('role'), fn ($q) => $q->where('role', $request->input('role')))
+            ->when($request->filled('status'), fn ($q) => $q->where('status', $request->input('status')))
             ->when($request->get('search'), function ($q, $search) {
                 $q->where(function ($inner) use ($search) {
                     $inner->where('name', 'like', "%{$search}%")
@@ -39,7 +39,7 @@ class UsersController extends BaseApiController
         return response()->json([
             'status' => true,
             'message' => 'OK',
-            'data' => collect($paginator->items())->map(fn($user) => [
+            'data' => collect($paginator->items())->map(fn ($user) => [
                 'id' => $user->id,
                 'name' => $user->name,
                 'username' => $user->username,
@@ -88,19 +88,22 @@ class UsersController extends BaseApiController
             'created_at' => now(),
         ]);
 
-        /**
+        return $this->ok($user, 'User berhasil dibuat.');
+    }
+
+    /**
      * PUT /users/:id
      * Update user.
      */
     public function update(StoreUserRequest $request, int $id): JsonResponse
     {
         $user = User::find($id);
-        if (!$user) {
+        if (! $user) {
             return $this->error('User tidak ditemukan', 404);
         }
 
         $data = $request->validated();
-        if (!empty($data['password'])) {
+        if (! empty($data['password'])) {
             $data['password'] = bcrypt($data['password']);
         } else {
             unset($data['password']);
@@ -128,7 +131,7 @@ class UsersController extends BaseApiController
     public function destroy(Request $request, int $id): JsonResponse
     {
         $user = User::find($id);
-        if (!$user) {
+        if (! $user) {
             return $this->error('User tidak ditemukan', 404);
         }
 
